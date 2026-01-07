@@ -1,9 +1,25 @@
-export default function Card(){
+export default function Card({desc ,img ,price, title,type ,rating}) {
     return (
         <>
-          <div className="border-2 w-[300px] m-5 p-4 rounded-lg border-gray-400">
-             <img className='w-full h-auto rounded-md' src="https://images.unsplash.com/photo-1767519818605-b9f0c9e3d16a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1MXx8fGVufDB8fHx8fA%3D%3D" alt="" />
-             <p className="mt-2 text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div className="border-2 w-[400px] m-5 p-4 rounded-lg border-gray-400" onClick ={()=> alert(`${title} ordered`)}
+          >
+             <div className="relative">
+                <img className='rounded-xl' src={img} alt="" />
+                {
+                    rating >=4.5 ? <div className="absolute px-2 py-[2px] rounded-full text-sm bg-green-100  text-green-600 bottom-0 m-2">Top Rated</div> : ""
+                }
+             </div>
+             <div className="flex justify-between items-center mt-2">
+                <p className="text-1xl font-bold">{title}</p>
+                <span className={type==='Veg' ? "bg-green-600 w-3 h-3 rounded-full " : 'bg-red-600 w-3 h-3 rounded-full'}></span>
+             </div>
+             <p className="mt-2 text-sm"> {desc} </p>
+             <div className="flex justify-between items-center mt-2">
+                <p className=" text-md text font-semibold">Price: {price}</p>
+                {
+                    price >=200 ? <span className="text-sm font-bold text-yellow-600">Free Delivary</span> : ""
+                }
+             </div>
           </div>
         </>
     )
