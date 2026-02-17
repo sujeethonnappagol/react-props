@@ -1,4 +1,4 @@
-// props are like properties in react this is used to pass the data from parent component to child component 
+// props are like properties in react this is used to pass the data from parent component to child component. where we can reuse it any where
 import User from "./Components/User"
 const users = [
   {
