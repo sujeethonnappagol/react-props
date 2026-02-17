@@ -1,3 +1,4 @@
+// props are like properties in react this is used to pass the data from parent component to child component 
 import User from "./Components/User"
 const users = [
   {
